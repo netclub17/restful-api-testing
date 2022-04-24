@@ -2,10 +2,15 @@
 
 API use Express.js
 
-### Run Project
+### Install node library
 
 ```bash
-npm install && npm start
+npm install
+```
+### Run this project
+
+```bash
+npm start
 ```
 
 ### Default running api url
