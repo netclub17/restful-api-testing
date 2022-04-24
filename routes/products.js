@@ -119,7 +119,7 @@ const productRoutes = (app, fs) => {
      *      - name: price
      *        description: price of the product
      *        in: formData
-     *        required: false
+     *        required: true
      *        type: number
      *
      *      - name: quantity
@@ -154,6 +154,18 @@ const productRoutes = (app, fs) => {
                     message: `Please require all input!`
                 });
             }
+
+            let price = 0;
+            if (req.body.price) {
+                price = Number(req.body.price) || 0;
+            }
+            Object.assign(req.body, {price: price});
+
+            let quantity = 0;
+            if (req.body.quantity) {
+                quantity = Number(req.body.quantity) || 0;
+            }
+            Object.assign(req.body, {quantity: quantity});
 
             // add the new products
             if (!req.body.id) {
